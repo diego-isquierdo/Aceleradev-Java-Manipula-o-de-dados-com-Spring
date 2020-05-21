@@ -12,13 +12,13 @@ import java.util.Optional;
 
 public interface CandidateRepository extends JpaRepository<Candidate, CandidateId> {
 
-    @Query("FROM Candidate c WHERE c.id.user.id = ?1 AND c.id.company.id = ?2 AND c.id.acceleration.id = ?3")
+    @Query("from Candidate c where c.id.user.id = ?1 and c.id.company.id = ?2 and c.id.acceleration.id = ?3")
     Optional<Candidate> findById(Long userId, Long companyId, Long accelerationId);
 
-    @Query("SELECT c FROM Candidate c WHERE c.id.company.id = ?1")
+    @Query("select c from Candidate c where c.id.company.id = ?1")
     List<Candidate> findAllByCompanyId(Long companyId);
 
-    @Query("SELECT c FROM Candidate c WHERE c.id.acceleration.id = ?1")
+    @Query("select c from Candidate c where c.id.acceleration.id = ?1")
     List<Candidate> findAllByAccelerationId(Long acclerationId);
 
 }
