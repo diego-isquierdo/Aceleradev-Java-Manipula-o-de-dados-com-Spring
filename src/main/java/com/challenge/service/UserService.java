@@ -11,7 +11,8 @@ import java.util.Optional;
 @Service
 public class UserService implements UserServiceInterface {
 
-    @Autowired private UserRepository repository;
+    @Autowired
+    private UserRepository repository;
 
     @Override
     public Optional<User> findById(Long userId) {
